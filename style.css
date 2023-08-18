@@ -1,0 +1,97 @@
+@import "https://unpkg.com/open-props" layer(base);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(base);
+
+@layer demo {
+  .card {
+    display: grid;
+    background: var(--surface-2);
+    padding: var(--size-3);
+    border-radius: var(--radius-4);
+  }
+  
+  .problem picture {
+    border-radius: var(--radius-4) var(--radius-4) 0 0;
+  }
+  
+  .problem footer {
+    border-radius: 0 0 var(--radius-4) var(--radius-4);
+  }
+  
+  /*  solution is to subtract the padding from the radius  */
+  .var-solution.card {
+    --fixed: calc(var(--radius-4) - var(--size-3));
+  }
+  
+  .var-solution.card picture {
+    border-radius: var(--fixed) var(--fixed) 0 0;
+  }
+  
+  .var-solution.card footer {
+    border-radius: 0 0 var(--fixed) var(--fixed);
+  }
+  
+  /* solution uses a clever margin overflow style */
+  .clip-solution.card {
+    overflow: clip;
+    overflow-clip-margin: content-box;
+  }
+}
+
+@layer demo.support {
+  body {
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    padding: var(--size-5);
+    gap: var(--size-5);
+  }
+  
+  .card picture {
+    background: var(--surface-1);
+  }
+  
+  .card footer {
+    padding: var(--size-3);
+    background: var(--surface-3);
+  }
+}
+header {
+  position: absolute;
+  background: dodgerblue;
+  top: 0px;
+  left: 0px;
+  width: 1920px;
+}
+header {
+  background: dodgerblue;
+  padding: 20px 0;
+}
+header {
+  background: dodgerblue;
+  padding: 20px 0;
+}
+.caixa {
+  position: relative;
+  width: 940px;
+  margin: 0 auto;
+}
+nav {
+  position: absolute;
+  top: 110px;
+  right: 0;
+}
+nav li {
+  display: inline;
+  margin: 0 0 0 15px;
+}
+nav a {
+  text-transform: uppercase;
+  color: #000000;
+  font-weight: bold;
+  font-size: 22px;
+  text-decoration: none;
+}
+nav a:hover {
+  color: hsl(250, 96%, 51%);
+  text-decoration: underline;
+}
